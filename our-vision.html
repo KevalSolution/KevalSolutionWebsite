@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Our Vision - Keval Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const items = document.querySelectorAll('.slide-left,.slide-right');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        /* reset animation */
+                        entry.target.style.animation = 'none';
+                        entry.target.offsetHeight; /* force reflow */
+
+                        if (entry.target.classList.contains('slide-left')) {
+                            entry.target.style.animation =
+                                'slideInLeft 1s ease-out forwards';
+                        }
+
+                        if (entry.target.classList.contains('slide-right')) {
+                            entry.target.style.animation =
+                                'slideInRight 1s ease-out forwards';
+                        }
+
+                    }
+                });
+            }, {
+                threshold: .30
+            });
+
+            items.forEach(item => {
+                observer.observe(item);
+            });
+
+        });
+    </script>
+    <style>
+        /* remove extra top gap under fixed header */
+        main {
+            padding-top: 0 !important;
+        }
+
+        body {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            scroll-margin-top: 80px;
+        }
+
+        /* each section */
+        .vision-section {
+            padding: 20px 5%;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 50/50 layout */
+        .vision-flex {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* image */
+        .vision-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInLeft 1.2s ease-out forwards;
+        }
+
+        .vision-image img {
+            width: auto;
+            max-width: 100%;
+            max-height: 75vh;
+            height: auto;
+            object-fit: contain;
+
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+        }
+
+        /* text side */
+        .vision-text {
+            padding: 20px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInRight 1.2s ease-out forwards;
+        }
+
+        .vision-text p {
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        /* alternate image right sections */
+        .reverse .vision-image {
+            order: 2;
+        }
+
+        .reverse .vision-text {
+            order: 1;
+        }
+
+        /* mobile */
+        @media (max-width:900px) {
+
+            .vision-flex {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .reverse .vision-image,
+            .reverse .vision-text {
+                order: unset;
+            }
+
+            .vision-text {
+                padding: 20px;
+            }
+
+            .vision-image img {
+                max-height: 50vh;
+                max-width: 95%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- SECTION 1 -->
+    <section id="vision" class="vision-section">
+        <div class="vision-flex">
+
+            <div class="vision-image">
+                <img src="images/vision.png" alt="Our Vision">
+            </div>
+
+            <div class="vision-text">
+                <h1>Our Vision</h1>
+
+                <p class="slide-left">
+                    We are a specialized clinical pharmacology, drug development and regulatory consultancy
+                    supporting biotech and pharmaceutical companies from first-in-human through registration and
+                    lifecycle management.
+                </p>
+
+                <p class="slide-right">
+                    We bring deep scientific expertise, hands-on regulatory experience, and pragmatic
+                    drug-development insight to help teams make confident, data-driven decisions while accelerating
+                    development.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SECTION 2 -->
+    <section id="what-sets-us-apart" class="vision-section reverse">
+        <div class="vision-flex">
+
+            <div class="vision-image">
+                <img src="images/what-sets-us-apart.png" alt="What Sets Us Apart">
+            </div>
+
+            <div class="vision-text">
+                <h1>What Sets Us Apart</h1>
+
+                <p class="slide-left">
+                    Senior-level clinical pharmacologists and regulatory writers
+                </p>
+
+                <p class="slide-right">
+                    Deep experience from IND to approval and beyond
+                </p>
+
+                <p class="slide-left">
+                    Strong FDA, EMA and global regulatory expertise
+                </p>
+
+                <p class="slide-right">
+                    Flexible engagement models tailored to lean biotech teams
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SECTION 3 -->
+    <section id="our-impact" class="vision-section">
+        <div class="vision-flex">
+
+            <div class="vision-image">
+                <img src="images/vision.png" alt="Our Impact">
+            </div>
+
+            <div class="vision-text">
+
+                <h1>Our Impact</h1>
+
+                <p class="slide-left">
+                    Right dose, right population, right study design
+                </p>
+
+                <p class="slide-right">
+                    Clear, defensible regulatory narratives
+                </p>
+
+                <p class="slide-left">
+                    Faster alignment with health authorities
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
