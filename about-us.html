@@ -8,10 +8,66 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         section {
-            min-height: 100vh;
+            min-height: vh;
             display: flex;
             align-items: center;
-            scroll-margin-top: 80px;
+            scroll-margin-top: 10px;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .why-box {
+            background: #f7f9fc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.06);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .why-box img {
+            width: 20%;
+            height: 20%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            align-content: center;
+        }
+
+        .why-box h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 8px;
+            text-align: center;
+        }
+
+        .why-box p {
+            font-size: 14px;
+            color: #444;
+            margin: 0;
+            text-align: center;
+        }
+
+        .why-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .why-us-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -45,29 +101,6 @@
                             pharmacology and regulatory deliverables.
                         </p>
                     </div>
-
-                    <div class="about-text">
-                        <h1>Why Us?</h1>
-
-                        <p class="slide-left">
-                            Science-driven, not template-driven: Every program is unique; our solutions are tailored.
-                        </p>
-
-                        <p class="slide-right">
-                            Regulatory-ready thinking: We develop strategies with health authority expectations in mind
-                            from day one.
-                        </p>
-
-                        <p class="slide-left">
-                            True partnership: We integrate seamlessly with your teams and act as trusted advisors.
-                        </p>
-
-                        <p class="slide-right">
-                            Clarity and credibility: We turn complex analyses into clear, persuasive regulatory
-                            narratives.
-                        </p>
-
-                    </div>
                 </div>
 
                 <div class="about-image">
@@ -77,6 +110,34 @@
 
             </div>
 
+        </section>
+
+
+        <section class="why-us-grid">
+
+            <div class="why-box">
+                <img src="images/aboutus/Sciencedriven.png" alt="Science-driven approach">
+                <h3>Science-driven, not template-driven</h3>
+                <p>Every program is unique; our solutions are tailored.</p>
+            </div>
+
+            <div class="why-box">
+                <img src="images/aboutus/RegulatoryReady.png" alt="Regulatory-ready thinking">
+                <h3>Regulatory-ready thinking</h3>
+                <p>We develop strategies with health authority expectations in mind from day one.</p>
+            </div>
+
+            <div class="why-box">
+                <img src="images/aboutus/partnership.png" alt="True partnership">
+                <h3>True partnership</h3>
+                <p>We integrate seamlessly with your teams and act as trusted advisors.</p>
+            </div>
+
+            <div class="why-box">
+                <img src="images/aboutus/Clarity.png" alt="Clarity and credibility">
+                <h3>Clarity and credibility</h3>
+                <p>We turn complex analyses into clear, persuasive regulatory narratives.</p>
+            </div>
         </section>
     </main>
 
