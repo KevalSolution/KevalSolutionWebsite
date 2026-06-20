@@ -1,194 +1,368 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<footer>
-  <div class="footer-links">
-    <div class="career">
-      <h4>Career</h4>
-      <ul>
-        <li><a href="#">Overview</a></li>
-        <li><a href="#">Students</a></li>
-        <li><a href="#">Life at Keval Solutions</a></li>
-        <li><a href="#">Benefits</a></li>
-        <li><a href="#">Open Roles</a></li>
-      </ul>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <head>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const banner = document.getElementById("cookie-banner");
+        const badge = document.getElementById("privacy-choice");
+        const acceptBtn = document.getElementById("cookie-accept");
+        const rejectBtn = document.getElementById("cookie-reject");
+
+        function updateBadge(choice) {
+          badge.textContent = "Privacy Choice: " + choice + " (tap to change)";
+          badge.style.display = "block";
+        }
+
+        const savedChoice = localStorage.getItem("cookieConsent");
+
+        if (!savedChoice) {
+          banner.style.display = "block";
+        } else {
+          updateBadge(savedChoice);
+        }
+
+        acceptBtn.addEventListener("click", () => {
+          localStorage.setItem("cookieConsent", "Accepted");
+          banner.style.display = "none";
+          updateBadge("Accepted");
+        });
+
+        rejectBtn.addEventListener("click", () => {
+          localStorage.setItem("cookieConsent", "Rejected");
+          banner.style.display = "none";
+          updateBadge("Rejected");
+        });
+
+        // Reopen banner when clicking the badge
+        badge.addEventListener("click", () => {
+          banner.style.display = "block";
+        });
+      });
+    </script>
+
+    <style>
+      .social-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: #000;
+        border-radius: 50%;
+        color: #fff;
+        text-decoration: none;
+        margin: 5px 2px;
+        padding: 10px;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 5px;
+        /* spacing between icons */
+        align-items: center;
+      }
+
+      .social-circle svg {
+        width: 18px;
+        /* icon size inside circle */
+        height: 18px;
+
+      }
+
+      .fa {
+        padding: 10px;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+      }
+
+      .fa:hover {
+        opacity: 0.7;
+      }
+
+      .fa-facebook {
+        background: #3B5998;
+        color: white;
+      }
+
+      .fa-twitter {
+        background: #55ACEE;
+        color: white;
+      }
+
+      .fa-google {
+        background: #dd4b39;
+        color: white;
+      }
+
+      .fa-linkedin {
+        background: #007bb5;
+        color: white;
+      }
+
+      .fa-youtube {
+        background: #bb0000;
+        color: white;
+      }
+
+      .fa-instagram {
+        background: #125688;
+        color: white;
+      }
+
+      .fa-pinterest {
+        background: #cb2027;
+        color: white;
+      }
+
+      .fa-snapchat-ghost {
+        background: #fffc00;
+        color: white;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      }
+
+      .fa-skype {
+        background: #00aff0;
+        color: white;
+      }
+
+      .fa-android {
+        background: #a4c639;
+        color: white;
+      }
+
+      .fa-dribbble {
+        background: #ea4c89;
+        color: white;
+      }
+
+      .fa-vimeo {
+        background: #45bbff;
+        color: white;
+      }
+
+      .fa-tumblr {
+        background: #2c4762;
+        color: white;
+      }
+
+      .fa-vine {
+        background: #00b489;
+        color: white;
+      }
+
+      .fa-foursquare {
+        background: #45bbff;
+        color: white;
+      }
+
+      .fa-stumbleupon {
+        background: #eb4924;
+        color: white;
+      }
+
+      .fa-flickr {
+        background: #f40083;
+        color: white;
+      }
+
+      .fa-yahoo {
+        background: #430297;
+        color: white;
+      }
+
+      .fa-soundcloud {
+        background: #ff5500;
+        color: white;
+      }
+
+      .fa-reddit {
+        background: #ff5700;
+        color: white;
+      }
+
+      .fa-rss {
+        background: #ff6600;
+        color: white;
+      }
+
+      footer {
+        background-color: #7297c5;
+        color: white;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 250px;
+        /* adjust as needed */
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        flex-grow: 1;
+      }
+
+      .footer-links>div {
+        margin: 5px 5px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding: 10px 0 5px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .cookie-banner {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 480px;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 18px 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        display: none;
+        animation: fadeIn 0.4s ease;
+        z-index: 9999;
+      }
+
+      .cookie-content p {
+        font-size: 14px;
+        color: #333;
+        margin: 0 0 12px 0;
+        line-height: 1.4;
+      }
+
+      .cookie-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .cookie-btn {
+        flex: 1;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .cookie-btn.accept {
+        background: #7297c5;
+        color: white;
+      }
+
+      .cookie-btn.reject {
+        background: #e5e5e5;
+        color: #333;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translate(-50%, 20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+      }
+
+      /* Privacy Choice Badge */
+      .privacy-choice {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ffffff;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        font-size: 13px;
+        color: #333;
+        cursor: pointer;
+        display: none;
+        z-index: 9999;
+      }
+    </style>
+  </head>
+
+  <body>
+    <footer>
+      <div class="footer-links">
+        <div class="career">
+          <h4>Career</h4>
+          <ul>
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">Students</a></li>
+            <li><a href="#">Life at Keval Solutions</a></li>
+            <li><a href="#">Benefits</a></li>
+            <li><a href="#">Open Roles</a></li>
+          </ul>
+        </div>
+        <div class="resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Client Login</a></li>
+            <li><a href="#">Pressroom</a></li>
+            <li><a href="#">Alumni Network</a></li>
+          </ul>
+        </div>
+        <div class="social">
+          <h4>Our Business</h4>
+          <div class="social-icons">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <!--<a href="#" class="fa fa-twitter"></a>-->
+            <a href="#" class="fa fa-youtube"></a>
+            <a href="#" target="_blank" aria-label="Visit our X profile" class="social-circle">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Privacy and Cookies | Your Privacy Choices | Terms & Conditions</p>
+
+      </div>
+    </footer>
+    <div id="cookie-banner" class="cookie-banner">
+      <div class="cookie-content">
+        <p>
+          We use cookies to enhance your browsing experience, analyze site traffic,
+          and personalize content. You can accept or reject non‑essential cookies.
+        </p>
+        <div class="cookie-actions">
+          <button id="cookie-accept" class="cookie-btn accept">Accept</button>
+          <button id="cookie-reject" class="cookie-btn reject">Reject</button>
+        </div>
+      </div>
     </div>
-    <div class="resources">
-      <h4>Resources</h4>
-      <ul>
-        <li><a href="#">Client Login</a></li>
-        <li><a href="#">Pressroom</a></li>
-        <li><a href="#">Alumni Network</a></li>
-      </ul>
-    </div>
-    <div class="social">
-      <h4>Our Business</h4>
-      <a href="#" class="fa fa-facebook"></a>
-      <a href="#" class="fa fa-linkedin"></a>
-      <a href="#" class="fa fa-instagram"></a>
-      <a href="#" class="fa fa-twitter"></a>
-      <a href="#" class="fa fa-youtube"></a>
-    </div>
-  </div>
+    <div id="privacy-choice" class="privacy-choice"></div>
+  </body>
 
-  <div class="footer-bottom">
-    <p>Privacy and Cookies | Your Privacy Choices | Terms & Conditions</p>
-  </div>
-
-  <style>
-    .fa {
-      padding: 10px;
-      font-size: 12px;
-      text-align: center;
-      text-decoration: none;
-      margin: 5px 2px;
-      border-radius: 50%;
-    }
-
-    .fa:hover {
-      opacity: 0.7;
-    }
-
-    .fa-facebook {
-      background: #3B5998;
-      color: white;
-    }
-
-    .fa-twitter {
-      background: #55ACEE;
-      color: white;
-    }
-
-    .fa-google {
-      background: #dd4b39;
-      color: white;
-    }
-
-    .fa-linkedin {
-      background: #007bb5;
-      color: white;
-    }
-
-    .fa-youtube {
-      background: #bb0000;
-      color: white;
-    }
-
-    .fa-instagram {
-      background: #125688;
-      color: white;
-    }
-
-    .fa-pinterest {
-      background: #cb2027;
-      color: white;
-    }
-
-    .fa-snapchat-ghost {
-      background: #fffc00;
-      color: white;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    }
-
-    .fa-skype {
-      background: #00aff0;
-      color: white;
-    }
-
-    .fa-android {
-      background: #a4c639;
-      color: white;
-    }
-
-    .fa-dribbble {
-      background: #ea4c89;
-      color: white;
-    }
-
-    .fa-vimeo {
-      background: #45bbff;
-      color: white;
-    }
-
-    .fa-tumblr {
-      background: #2c4762;
-      color: white;
-    }
-
-    .fa-vine {
-      background: #00b489;
-      color: white;
-    }
-
-    .fa-foursquare {
-      background: #45bbff;
-      color: white;
-    }
-
-    .fa-stumbleupon {
-      background: #eb4924;
-      color: white;
-    }
-
-    .fa-flickr {
-      background: #f40083;
-      color: white;
-    }
-
-    .fa-yahoo {
-      background: #430297;
-      color: white;
-    }
-
-    .fa-soundcloud {
-      background: #ff5500;
-      color: white;
-    }
-
-    .fa-reddit {
-      background: #ff5700;
-      color: white;
-    }
-
-    .fa-rss {
-      background: #ff6600;
-      color: white;
-    }
-
-    footer {
-      background-color: #7297c5;
-      color: white;
-      padding: 10px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 250px;
-      /* adjust as needed */
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      flex-grow: 1;
-    }
-
-    .footer-links>div {
-      margin: 5px 5px;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding: 10px 0 5px;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</footer>
+  </html>
